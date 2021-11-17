@@ -18,12 +18,12 @@ abstract class Post
         $this->client = new Client();
     }
 
-    public function client(): Client
+    protected function client(): Client
     {
         return $this->client;
     }
 
-    public function pipefyPost(string $body): Response
+    protected function pipefyPost(string $body): Response
     {
         try {
             return $this->client()->post(
@@ -34,9 +34,9 @@ abstract class Post
                         'Accept' => 'application/json',
                         'Authorization' => sprintf('Bearer %s', $_ENV['PIPEFY_KEY']),
                         'Content-Type' => 'application/json'
-                        ]
-                        ]
-                    );
+                    ]
+                ]
+            );
         } catch (RequestException $err) {
             return $err->getResponse();
         }

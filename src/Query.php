@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace AndremeirelesPipefy;
 
+use GraphQL\Type\Definition\ObjectType;
 use GuzzleHttp\Client;
 
 class Query
